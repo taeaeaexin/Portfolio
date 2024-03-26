@@ -1,23 +1,21 @@
-# Portfolio
-문태신(TAESIN MOON)-taeaeaexin's Portfolio
+## Profile
+**문태신 (TAESIN MOON)**
 
-# Intro
-안녕하세요 문태신입니다.
+**Full-Stack 개발자(지망생) 입니다.**
 
-# Technology
-사용 가능한 기술입니다.
-
-## 1. Language
+## Technology
+> #### 1. Language
 > <img src="https://img.shields.io/badge/Java-FFFFFF?style=for-the-badge&logo=Java&logoColor=black">
 > <img src="https://img.shields.io/badge/C-FFFFFF?style=for-the-badge&logo=c&logoColor=black">
 > <img src="https://img.shields.io/badge/C++-FFFFFF?style=for-the-badge&logo=cplusplus&logoColor=black">
-> <img src="https://img.shields.io/badge/Visual Basic-FFFFFF?style=for-the-badge&logo=visualbasic&logoColor=black">
 
-## 2. Skill
->
+> #### 2. Skill
+> <img src="https://img.shields.io/badge/HTML5-FFFFFF?style=for-the-badge&logo=html5&logoColor=black">
+> <img src="https://img.shields.io/badge/CSS3-FFFFFF?style=for-the-badge&logo=css3&logoColor=black">
+> <img src="https://img.shields.io/badge/javaScript-FFFFFF?style=for-the-badge&logo=javascript&logoColor=black">
 
-# 📋Project
-## 1. Portfolio Web page
+## 📋Project
+#### 1. Portfolio Web page
 >포트폴리오 제출용 웹페이지 제작
 >- 개발기간 : 2024.03.26. ~
 >- 역할 : 전부
@@ -31,11 +29,11 @@
 >> - Skill :
 >> - Link 
 
-# Contact
+## Contact
 - <img src="https://img.shields.io/badge/KaKaoTalk-FFFFFF.svg?style=for-the-badge&logo=kakaotalk&logoColor=black">
 - <img src="https://img.shields.io/badge/Instagram-FFFFFF.svg?style=for-the-badge&logo=instagram&logoColor=black">
 - <img src="https://img.shields.io/badge/YouTube-FFFFFF.svg?style=for-the-badge&logo=youtube&logoColor=black">
 
 
 
->Ver.1.0.1 (BXMA26)
+#### Ver.1.1.0 (BXMA26)
