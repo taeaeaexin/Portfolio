@@ -1,0 +1,26 @@
+[
+  {
+    "title": "프로젝트 1",
+    "description": "첫 번째 프로젝트 설명",
+    "link": "#",
+    "thumbnail": "https://via.placeholder.com/150"
+  },
+  {
+    "title": "프로젝트 2",
+    "description": "두 번째 프로젝트 설명",
+    "link": "#",
+    "thumbnail": "https://via.placeholder.com/150"
+  },
+  {
+    "title": "프로젝트 3",
+    "description": "세 번째 프로젝트 설명",
+    "link": "#",
+    "thumbnail": "https://via.placeholder.com/150"
+  },
+  {
+    "title": "프로젝트 4",
+    "description": "네 번째 프로젝트 설명",
+    "link": "#",
+    "thumbnail": "https://via.placeholder.com/150"
+  }
+]
