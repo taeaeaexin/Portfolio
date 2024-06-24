@@ -3,14 +3,14 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* 배경색 추가 */
+    background-color: #f4f4f4;
 }
 
 header {
     background: #333;
     color: #fff;
     padding: 1rem;
-    position: fixed; /* 상단 고정 */
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -20,9 +20,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%; /* 너비 조정 */
-    max-width: 1200px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 가운데 정렬 */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -55,7 +55,7 @@ section {
     margin: 2rem 0;
 }
 
-section#about, section#projects, section#guestbook, section#guestbook-all {
+section#about, section#projects, section#guestbook, section#guestbook-view {
     background: #fff;
     padding: 1rem;
     border-radius: 5px;
@@ -130,9 +130,6 @@ footer {
     padding: 1rem;
     background: #333;
     color: #fff;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 #guestbook-form {
@@ -171,18 +168,27 @@ footer {
 }
 
 .guestbook-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #f9f9f9;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: left; /* 왼쪽 정렬 */
 }
 
 .guestbook-entry .entry-text {
     flex: 1;
+}
+
+.guestbook-entry .entry-text strong {
+    margin-right: 10px;
+}
+
+.guestbook-entry .entry-text small {
+    margin-right: 10px;
 }
 
 .guestbook-entry .delete-button {
@@ -197,18 +203,4 @@ footer {
 
 .guestbook-entry .delete-button:hover {
     background-color: #c82333;
-}
-
-#view-more-button {
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-#view-more-button:hover {
-    background-color: #0056b3;
 }
