@@ -8,20 +8,25 @@
 </head>
 <body>
 <header>
-    <h1>포트폴리오</h1>
-    <hr> <!-- 제목 아래에 줄 추가 -->
-    <nav>
-        <ul>
-            <li><a href="#about">소개</a></li>
-            <li><a href="#projects">프로젝트</a></li>
-            <li><a href="#contact">연락처</a></li>
-        </ul>
-    </nav>
+    <div class="header-container">
+        <h1>Full Stack Developer</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#projects">프로젝트</a></li>
+                <li><a href="#guestbook">방명록</a></li>
+            </ul>
+        </nav>
+    </div>
 </header>
 <main>
-    <section id="about">
-        <h2>소개</h2>
-        <p>개발자가 되고싶은 한 남자의 포트폴리오</p>
+    <section id="about" class="center">
+        <img src="https://via.placeholder.com/150" alt="프로필 사진" class="profile-photo">
+        <div class="profile-info">
+            <h2>문태신</h2>
+            <p>1999.01.07</p>
+            <p>헬스와 코딩, 고양이를 좋아해요.</p>
+        </div>
     </section>
     <section id="projects">
         <h2>프로젝트</h2>
@@ -29,12 +34,28 @@
             <!-- JavaScript로 프로젝트가 여기에 추가될 것입니다 -->
         </div>
     </section>
-    <section id="contact">
-        <h2>연락처</h2>
-        <p>E. re_fuse@naver.com</p>
-        <p>T. 010-6792-2114</p>
+    <section id="guestbook">
+        <h2>방명록</h2>
+        <form id="guestbook-form">
+            <input type="text" id="guest-name" placeholder="이름" required>
+            <textarea id="guest-message" placeholder="메시지" required></textarea>
+            <button type="submit">등록</button>
+        </form>
+        <div id="guestbook-entries" class="scrollable">
+            <!-- JavaScript로 방명록 항목이 여기에 추가될 것입니다 -->
+        </div>
+        <button id="view-more-button">더 보기</button>
+    </section>
+    <section id="guestbook-all">
+        <h2>전체 방명록 보기</h2>
+        <div id="all-guestbook-entries">
+            <!-- 모든 방명록 항목이 여기에 추가될 것입니다 -->
+        </div>
     </section>
 </main>
+<footer>
+    <small>Ver 1.1.1 (Update 240624 16:34) | 배고픈 개발자에게 후원하기 (KB국민945802-00-462066)</small> <!-- 최신 버전을 표시하는 한 줄 추가 -->
+</footer>
 <script src="app.js"></script> <!-- JavaScript 파일 연결 -->
 </body>
 </html>
