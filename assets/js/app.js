@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         deleteButton.addEventListener('click', function() {
             const password = prompt('관리자 비밀번호를 입력하세요:');
-            if (password === '1010') {
+            if (password === '1111') {
                 entry.remove();
                 const index = storedEntries.findIndex(e => e.name === name && e.message === message && e.date === date && e.time === time);
                 if (index > -1) {

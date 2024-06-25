@@ -55,7 +55,7 @@ section {
     margin: 2rem 0;
 }
 
-section#about, section#projects, section#guestbook, section#guestbook-view {
+section#about, section#projects, section#guestbook {
     background: #fff;
     padding: 1rem;
     border-radius: 5px;
@@ -132,6 +132,17 @@ footer {
     color: #fff;
 }
 
+.guestbook-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.guestbook-form-container,
+.guestbook-entries-container {
+    width: 48%;
+}
+
 #guestbook-form {
     display: flex;
     flex-direction: column;
@@ -141,8 +152,7 @@ footer {
 #guestbook-form input,
 #guestbook-form textarea {
     margin-bottom: 1rem;
-    width: 80%;
-    max-width: 500px;
+    width: 100%;
     padding: 0.5rem;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -163,32 +173,30 @@ footer {
 
 #guestbook-entries {
     margin-top: 2rem;
-    max-height: 300px;
+    max-height: 400px;
     overflow-y: auto; /* 세로 스크롤 */
+    text-align: left; /* 왼쪽 정렬 */
 }
 
 .guestbook-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background: #f9f9f9;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: left; /* 왼쪽 정렬 */
+    display: flex;
+    align-items: center;
 }
 
 .guestbook-entry .entry-text {
     flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.guestbook-entry .entry-text strong {
-    margin-right: 10px;
-}
-
-.guestbook-entry .entry-text small {
-    margin-right: 10px;
+.guestbook-entry .entry-text p {
+    margin: 0 1rem;
 }
 
 .guestbook-entry .delete-button {
@@ -203,4 +211,15 @@ footer {
 
 .guestbook-entry .delete-button:hover {
     background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        flex: 0 0 100%;
+    }
+
+    .guestbook-form-container,
+    .guestbook-entries-container {
+        width: 100%;
+    }
 }

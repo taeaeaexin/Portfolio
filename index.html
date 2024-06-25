@@ -36,17 +36,20 @@
         </div>
     </section>
     <section id="guestbook">
-        <h2>방명록 작성</h2>
-        <form id="guestbook-form">
-            <input type="text" id="guest-name" placeholder="이름" required>
-            <textarea id="guest-message" placeholder="메시지" required></textarea>
-            <button type="submit">등록</button>
-        </form>
-    </section>
-    <section id="guestbook-view">
-        <h2>방명록 보기</h2>
-        <div id="guestbook-entries" class="scrollable">
-            <!-- 방명록 추가부분 -->
+        <h2>방명록</h2>
+        <div class="guestbook-container">
+            <div class="guestbook-form-container">
+                <form id="guestbook-form">
+                    <input type="text" id="guest-name" placeholder="이름" required>
+                    <textarea id="guest-message" placeholder="메시지" required></textarea>
+                    <button type="submit">등록</button>
+                </form>
+            </div>
+            <div class="guestbook-entries-container">
+                <div id="guestbook-entries" class="scrollable">
+                    <!-- JavaScript로 방명록 항목이 여기에 추가될 것입니다 -->
+                </div>
+            </div>
         </div>
     </section>
 </main>
