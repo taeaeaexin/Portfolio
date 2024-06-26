@@ -1,23 +1,20 @@
 // assets/js/app.js
-import Amplify, { API, graphqlOperation } from 'aws-amplify';
-import awsExports from './aws-exports';
-import { createComment } from './graphql/mutations';
-import { listComments } from './graphql/queries';
-
-Amplify.configure(awsExports);
-
 document.addEventListener('DOMContentLoaded', async function() {
     const guestbookForm = document.getElementById('guestbook-form');
     const guestbookEntries = document.getElementById('guestbook-entries');
 
     async function fetchComments() {
-        const commentData = await API.graphql(graphqlOperation(listComments));
-        const comments = commentData.data.listComments.items;
-        guestbookEntries.innerHTML = "";
-        comments.forEach(comment => {
-            const entryElement = createGuestbookEntry(comment);
-            guestbookEntries.appendChild(entryElement);
-        });
+        try {
+            const commentData = await Amplify.API.graphql({ query: window.listComments });
+            const comments = commentData.data.listComments.items;
+            guestbookEntries.innerHTML = "";
+            comments.forEach(comment => {
+                const entryElement = createGuestbookEntry(comment);
+                guestbookEntries.appendChild(entryElement);
+            });
+        } catch (error) {
+            console.error('Error fetching comments:', error);
+        }
     }
 
     fetchComments();
@@ -29,20 +26,24 @@ document.addEventListener('DOMContentLoaded', async function() {
         const message = document.getElementById('guest-message').value;
         const createdAt = new Date().toISOString();
 
-        // IP 주소 가져오기
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const ipData = await ipResponse.json();
-        const ip = ipData.ip;
+        try {
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            const ip = ipData.ip;
 
-        const entry = { name, message, createdAt, ip };
+            const entry = { name, message, createdAt, ip };
 
-        await API.graphql(graphqlOperation(createComment, { input: entry }));
-        fetchComments();
+            await Amplify.API.graphql({ query: window.createComment, variables: { input: entry } });
+            saveToBackup(entry);
+            fetchComments();
 
-        guestbookForm.reset();
+            guestbookForm.reset();
+        } catch (error) {
+            console.error('Error submitting comment:', error);
+        }
     });
 
-    function createGuestbookEntry({ name, message, createdAt }) {
+    function createGuestbookEntry({ id, name, message, createdAt, ip }) {
         const entry = document.createElement('div');
         entry.className = 'guestbook-entry';
 
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         const entryText = document.createElement('div');
         entryText.className = 'entry-text';
-        entryText.innerHTML = `<strong>${name}</strong> <small>(${date} ${time})</small> <p>${message}</p>`;
+        entryText.innerHTML = `<strong>${name}</strong> <small>(${date} ${time})</small> <p>${message}</p> <small>IP: ${ip}</small>`;
 
         const deleteButton = document.createElement('button');
         deleteButton.className = 'delete-button';
@@ -59,9 +60,13 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         deleteButton.addEventListener('click', async function() {
             const password = prompt('관리자 비밀번호를 입력하세요:');
-            if (password === '1111') {
-                await API.graphql(graphqlOperation(deleteComment, { input: { id } }));
-                fetchComments();
+            if (password === '1010') {
+                try {
+                    await Amplify.API.graphql({ query: window.deleteComment, variables: { input: { id } } });
+                    fetchComments();
+                } catch (error) {
+                    console.error('Error deleting comment:', error);
+                }
             } else {
                 alert('비밀번호가 틀렸습니다.');
             }
@@ -71,5 +76,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         entry.appendChild(deleteButton);
 
         return entry;
+    }
+
+    function saveToBackup(entry) {
+        const backupData = `${entry.createdAt} - ${entry.name}: ${entry.message} (IP: ${entry.ip})\n`;
+        const blob = new Blob([backupData], { type: 'text/plain' });
+        const anchor = document.createElement('a');
+        anchor.href = URL.createObjectURL(blob);
+        anchor.download = 'guestbook_backup.txt';
+        anchor.click();
     }
 });

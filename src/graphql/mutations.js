@@ -1,51 +1,16 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
+// mutations.js
+window.createComment = `mutation CreateComment($input: CreateCommentInput!) {
+  createComment(input: $input) {
+    id
+    name
+    message
+    createdAt
+    ip
+  }
+}`;
 
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    createComment(input: $input, condition: $condition) {
-      id
-      name
-      message
-      createdAt
-      ip
-      updatedAt
-      __typename
-    }
+window.deleteComment = `mutation DeleteComment($input: DeleteCommentInput!) {
+  deleteComment(input: $input) {
+    id
   }
-`;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    updateComment(input: $input, condition: $condition) {
-      id
-      name
-      message
-      createdAt
-      ip
-      updatedAt
-      __typename
-    }
-  }
-`;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      name
-      message
-      createdAt
-      ip
-      updatedAt
-      __typename
-    }
-  }
-`;
+}`;

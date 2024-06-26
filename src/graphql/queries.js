@@ -1,37 +1,12 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
-
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
+// queries.js
+window.listComments = `query ListComments {
+  listComments {
+    items {
       id
       name
       message
       createdAt
       ip
-      updatedAt
-      __typename
     }
   }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        name
-        message
-        createdAt
-        ip
-        updatedAt
-        __typename
-      }
-      nextToken
-      __typename
-    }
-  }
-`;
+}`;
